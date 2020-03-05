@@ -4,11 +4,11 @@ public class Score {
 
 	private float marketingScore = 0;
 
-	public void increaseScore(float point) {
+	public void increase(float point) {
 		marketingScore += point;
 	}
 
-	public void decreaseScore(float point) {
+	public void decrease(float point) {
 		marketingScore -= point;
 	}
 

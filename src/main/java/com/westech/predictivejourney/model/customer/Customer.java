@@ -9,15 +9,15 @@ public class Customer {
 	@Id
 	private String emailAddress;
 	//private String bsLastPurchaseAt;
-	private Integer bsLastPurchaseSince;
-	private Integer bsLifetimeRevenue;
-	private Integer bsLifetimeVisits;
-	private Integer bsPredictiveEngagementPercentile;
-	private Integer bsPredictivePurchaseIntent;
-	private Integer bsPredictiveRetention;
-	private Integer mwSubsCount;
-	private Integer mwListsCount;
-	private float marketingScore;
+	private Integer bsLastPurchaseSince = 0;
+	private Integer bsLifetimeRevenue = 0;
+	private Integer bsLifetimeVisits = 0;
+	private Integer bsPredictiveEngagementPercentile = 0;
+	private Integer bsPredictivePurchaseIntent = 0;
+	private Integer bsPredictiveRetention = 0;
+	private Integer mwSubsCount = 0;
+	private Integer mwListsCount = 0;
+	private float marketingScore = 0;
 
 	public String getEmailAddress() {
 		return emailAddress;
