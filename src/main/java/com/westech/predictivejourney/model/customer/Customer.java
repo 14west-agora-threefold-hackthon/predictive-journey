@@ -1,7 +1,12 @@
 package com.westech.predictivejourney.model.customer;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Customer {
 
+	@Id
 	private String emailAddress;
 	//private String bsLastPurchaseAt;
 	private Integer bsLastPurchaseSince;
