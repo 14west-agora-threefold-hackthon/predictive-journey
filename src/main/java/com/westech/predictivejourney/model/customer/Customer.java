@@ -3,14 +3,16 @@ package com.westech.predictivejourney.model.customer;
 public class Customer {
 
 	private String emailAddress;
-	private String bsLastPurchaseAt;
-	private String bsLifetimeRevenue;
-	private String bsLifetimeVisits;
+	//private String bsLastPurchaseAt;
+	private Integer bsLastPurchaseSince;
+	private Integer bsLifetimeRevenue;
+	private Integer bsLifetimeVisits;
 	private Integer bsPredictiveEngagementPercentile;
 	private Integer bsPredictivePurchaseIntent;
 	private Integer bsPredictiveRetention;
 	private Integer mwSubsCount;
 	private Integer mwListsCount;
+	private float marketingScore;
 
 	public String getEmailAddress() {
 		return emailAddress;
@@ -20,27 +22,27 @@ public class Customer {
 		this.emailAddress = emailAddress;
 	}
 
-	public String getBsLastPurchaseAt() {
-		return bsLastPurchaseAt;
+	public Integer getBsLastPurchaseSince() {
+		return bsLastPurchaseSince;
 	}
 
-	public void setBsLastPurchaseAt(String bsLastPurchaseAt) {
-		this.bsLastPurchaseAt = bsLastPurchaseAt;
+	public void setBsLastPurchaseSince(Integer bsLastPurchaseSince) {
+		this.bsLastPurchaseSince = bsLastPurchaseSince;
 	}
 
-	public String getBsLifetimeRevenue() {
+	public Integer getBsLifetimeRevenue() {
 		return bsLifetimeRevenue;
 	}
 
-	public void setBsLifetimeRevenue(String bsLifetimeRevenue) {
+	public void setBsLifetimeRevenue(Integer bsLifetimeRevenue) {
 		this.bsLifetimeRevenue = bsLifetimeRevenue;
 	}
 
-	public String getBsLifetimeVisits() {
+	public Integer getBsLifetimeVisits() {
 		return bsLifetimeVisits;
 	}
 
-	public void setBsLifetimeVisits(String bsLifetimeVisits) {
+	public void setBsLifetimeVisits(Integer bsLifetimeVisits) {
 		this.bsLifetimeVisits = bsLifetimeVisits;
 	}
 
@@ -82,5 +84,13 @@ public class Customer {
 
 	public void setMwListsCount(Integer mwListsCount) {
 		this.mwListsCount = mwListsCount;
+	}
+
+	public float getMarketingScore() {
+		return marketingScore;
+	}
+
+	public void setMarketingScore(float marketingScore) {
+		this.marketingScore = marketingScore;
 	}
 }
