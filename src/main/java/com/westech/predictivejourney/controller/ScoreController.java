@@ -19,7 +19,7 @@ public class ScoreController {
 	CustomerDataService customerDataService;
 
 
-	@GetMapping("/score/emailaddress/{emailAddress}")
+	@GetMapping("/score/emailaddress/{emailAddress:.+}")
 	public float getScoreByEmail(@PathVariable String emailAddress) {
 		Customer customer = customerDataService.getCustomerByEmail(emailAddress);
 
