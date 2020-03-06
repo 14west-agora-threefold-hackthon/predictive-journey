@@ -2,7 +2,9 @@ package com.westech.predictivejourney.dao;
 
 import com.westech.predictivejourney.model.customer.Customer;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
-public interface InternalDAO extends CrudRepository<Customer, String> {
+@Repository
+public interface CustomerRepository extends CrudRepository<Customer, String> {
 
 }

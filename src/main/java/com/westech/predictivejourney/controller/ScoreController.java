@@ -18,16 +18,17 @@ public class ScoreController {
 	@Autowired
 	CustomerDataService customerDataService;
 
-
 	@GetMapping("/score/emailaddress/{emailAddress:.+}")
 	public float getScoreByEmail(@PathVariable String emailAddress) {
-		Customer customer = customerDataService.getCustomerByEmail(emailAddress);
+		// Get mock customer
+		Customer customer = customerDataService.getMockCustomerByEmail(emailAddress);
+
+		//Customer customer = customerDataService.getCustomerByEmail(emailAddress);
 
 		Score marketingScore = scoreService.calculateScore(customer);
 
-		// Move to DAO?
 		customer.setMarketingScore(marketingScore.getMarketingScore());
-
+		customerDataService.updateCustomerMarketingScore(customer);
 		return marketingScore.getMarketingScore();
 	}
 

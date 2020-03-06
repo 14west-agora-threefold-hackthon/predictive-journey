@@ -1,7 +1,11 @@
 package com.westech.predictivejourney.service;
 
+import com.westech.predictivejourney.dao.CustomerRepository;
 import com.westech.predictivejourney.model.customer.Customer;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.Optional;
 
 @Service
 public class CustomerDataService {
@@ -11,9 +15,23 @@ public class CustomerDataService {
 	private final String ADOPT_EMAIL = "adopt@14west.us";
 	private final String ENGAGE_EMAIL = "engage@14west.us";
 
-	public Customer getDataPoints() {
+	@Autowired
+	CustomerRepository repository;
 
-		return new Customer();
+	public Customer getCustomerByEmail(String emailAddress) {
+		Optional<Customer> optionalCustomer = repository.findById(emailAddress);
+		if (optionalCustomer.isPresent()) {
+			return optionalCustomer.get();
+		} else {
+			Customer customer = new Customer();
+			customer.setEmailAddress(emailAddress);
+			repository.save(customer);
+			return customer;
+		}
+	}
+
+	public void updateCustomerMarketingScore(Customer customer) {
+		repository.save(customer);
 	}
 
 	/**
@@ -22,7 +40,7 @@ public class CustomerDataService {
 	 * @param emailAddress
 	 * @return
 	 */
-	public Customer getCustomerByEmail(String emailAddress) {
+	public Customer getMockCustomerByEmail(String emailAddress) {
 
 		if (emailAddress.equalsIgnoreCase(AQUIRE_EMAIL)) {
 			return createAquireCustomer(emailAddress);

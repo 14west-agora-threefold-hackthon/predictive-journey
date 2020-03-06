@@ -14,22 +14,22 @@ public class ScoreService {
 		if (StringUtils.isNotBlank(customer.getEmailAddress())) {
 			score.increase(1);
 		}
-		if (customer.getMwListsCount() > 0) {
+		if (customer.getMwListsCount() != null && customer.getMwListsCount() > 0) {
 			score.increase(1);
 		}
-		if (customer.getBsLastPurchaseSince() < 180) {
+		if (customer.getBsLastPurchaseSince() != null && customer.getBsLastPurchaseSince() < 180) {
 			score.increase(1);
 		}
-		if (customer.getBsLifetimeVisits() > 10) {
+		if (customer.getBsLifetimeVisits() != null && customer.getBsLifetimeVisits() > 10) {
 			score.increase(1);
 		}
-		if (customer.getBsPredictiveRetention() > 5) {
+		if (customer.getBsPredictiveRetention() != null && customer.getBsPredictiveRetention() > 5) {
 			score.increase(1);
 		}
-		if (customer.getBsLifetimeRevenue() > 2000) {
+		if (customer.getBsLifetimeRevenue() != null && customer.getBsLifetimeRevenue() > 2000) {
 			score.increase(1);
 		}
-		if (customer.getBsPredictivePurchaseIntent() > 5) {
+		if (customer.getBsPredictivePurchaseIntent() != null && customer.getBsPredictivePurchaseIntent() > 5) {
 			score.increase(1);
 		}
 		return score;
