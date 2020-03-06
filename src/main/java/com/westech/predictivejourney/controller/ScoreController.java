@@ -7,6 +7,8 @@ import com.westech.predictivejourney.service.ScoreService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -20,10 +22,7 @@ public class ScoreController {
 
 	@GetMapping("/score/emailaddress/{emailAddress:.+}")
 	public float getScoreByEmail(@PathVariable String emailAddress) {
-		// Get mock customer
-		Customer customer = customerDataService.getMockCustomerByEmail(emailAddress);
-
-		//Customer customer = customerDataService.getCustomerByEmail(emailAddress);
+		Customer customer = customerDataService.getCustomerByEmail(emailAddress);
 
 		Score marketingScore = scoreService.calculateScore(customer);
 
@@ -32,4 +31,8 @@ public class ScoreController {
 		return marketingScore.getMarketingScore();
 	}
 
+	@PostMapping("/customer/update")
+	public void updateCustomer(@RequestBody Customer customer) {
+		customerDataService.updateCustomerMarketingScore(customer);
+	}
 }

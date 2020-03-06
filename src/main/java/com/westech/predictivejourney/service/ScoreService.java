@@ -17,6 +17,9 @@ public class ScoreService {
 		if (customer.getMwListsCount() != null && customer.getMwListsCount() > 0) {
 			score.increase(1);
 		}
+		if (customer.getMwSubsCount() != null && customer.getMwSubsCount() > 0) {
+			score.increase(1);
+		}
 		if (customer.getBsLastPurchaseSince() != null && customer.getBsLastPurchaseSince() < 180) {
 			score.increase(1);
 		}
@@ -30,6 +33,9 @@ public class ScoreService {
 			score.increase(1);
 		}
 		if (customer.getBsPredictivePurchaseIntent() != null && customer.getBsPredictivePurchaseIntent() > 5) {
+			score.increase(1);
+		}
+		if (customer.getBsPredictiveEngagementPercentile() != null && customer.getBsPredictiveEngagementPercentile() > 50) {
 			score.increase(1);
 		}
 		return score;
