@@ -10,11 +10,6 @@ import java.util.Optional;
 @Service
 public class CustomerDataService {
 
-	private final String AQUIRE_EMAIL = "aquire@14west.us";
-	private final String CONVERT_EMAIL = "convert@14west.us";
-	private final String ADOPT_EMAIL = "adopt@14west.us";
-	private final String ENGAGE_EMAIL = "engage@14west.us";
-
 	@Autowired
 	CustomerRepository repository;
 
